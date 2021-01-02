@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header text-center">
+        Sign-up Form
+    </div>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="signUp()">
+            <label for="fname" class="form-label">Firstname</label>
+            <input type="text" class="form-control" id="fname" formControlName="firstName" name="firstname">
+            <div *ngIf="!form.firstName.pristine && form.firstName.touched && form.firstName.errors" class="error-message">
+                <div *ngIf="form.firstName.errors.required">FirstName is Required</div>
+                <div *ngIf="form.firstName.errors.pattern">Incorrect Firstname
+                </div>
+            </div>
+            <br>
+            <label for="lname" class="form-label">Lastname</label>
+            <input type="text" class="form-control" id="lname" formControlName="lastName" name="lastName">
+            <div *ngIf="!form.lastName.pristine && form.lastName.touched && form.lastName.errors" class="error-message">
+                <div *ngIf="form.lastName.errors.required">LastName is Required</div>
+                <div *ngIf="form.lastName.errors.pattern">Incorrect Lastname
+                </div>
+            </div>
+            <br>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" name="email">
+            <div *ngIf="!form.email.pristine && form.email.touched && form.email.errors" class="error-message">
+                <div *ngIf="form.email.errors.required">Email is Required</div>
+                <div *ngIf="form.email.errors.pattern">Incorrect Email
+                </div>
+            </div>
+            <br>
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pass" formControlName="password" name="password">
+            <div *ngIf="!form.password.pristine && form.password.touched && form.password.errors" class="error-message">
+                <div *ngIf="form.password.errors.required">Password is Required</div>
+            </div>
+            <br>
+            <label for="cpass" class="form-label">Confirm-Password</label>
+            <input type="password" class="form-control" id="cpass" formControlName="confirmPassword" name="confirmPassword">
+            <div *ngIf="!form.confirmPassword.pristine && form.confirmPassword.touched && form.confirmPassword.errors" class="error-message">
+                <div *ngIf="form.confirmPassword.errors.required">Confirm Password is Required</div>
+                <div *ngIf="form.confirmPassword.errors.mustMatch">Your Password does not match. Kindly enter the same passwod as entered above</div>
+            </div>
+            <br>
+            <button class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+ 

@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-header">
+        Login !!
+    </div>
+    <div class="card-body">
+        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{errorMessage}}
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" name="email">
+            <br>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" name="password">
+            <br>
+            <button class="btn btn-primary">Login</button> &nbsp; &nbsp; &nbsp;
+            <button *ngIf="viewSignUpBtn" class="btn btn-primary" (click)="routeToRegisterPage()">SignUp</button>
+        </form>
+    </div>
+</div>
